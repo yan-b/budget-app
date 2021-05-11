@@ -1,37 +1,43 @@
 package htw.berlin.budgetapp.presistence;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import htw.berlin.budgetapp.service.AccountType;
+
+import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "accounts")
 public class AccountEntity {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long accountId;
 
-        @Column(nullable = false)
+        @Column(name = "account_name", nullable = false)
         private String accountName;
 
-        @Column(nullable = false)
-        private String accountType;
+        @Column(name = "account_type", nullable = false)
+        @Enumerated(value = EnumType.STRING)
+        private AccountType accountType;
 
-        @Column(nullable = false)
+        @Column(name = "account_balance")
         private double accountBalance;
 
 
-        public AccountEntity(String accountName, String accountType, double accountBalance) {
+        public AccountEntity(String accountName, AccountType accountType) {
             this.accountName = accountName;
             this.accountType = accountType;
-            this.accountBalance = accountBalance;
+            this.accountBalance = 0.00;
         }
 
         protected AccountEntity() {}
+
+
+        @Override
+        public String toString() {
+        return String.format(
+                "Account[Account-Id=%d, Account-Name='%s', Account-Balance='%s']",
+                accountId, accountName, accountBalance);
+    }
 
         public Long getId() {
             return accountId;
@@ -43,7 +49,7 @@ public class AccountEntity {
         }
 
 
-        public String getAccountType() {
+        public AccountType getAccountType() {
             return accountType;
         }
 
@@ -51,8 +57,4 @@ public class AccountEntity {
         public double getAccountBalance() {
             return accountBalance;
         }
-
-        public void setAccountBalance(double balance) {
-            this.accountBalance = balance;
-        }
-    }
+ }

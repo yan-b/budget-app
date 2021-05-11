@@ -1,5 +1,8 @@
 package htw.berlin.budgetapp;
 
+import htw.berlin.budgetapp.presistence.AccountEntity;
+import htw.berlin.budgetapp.presistence.AccountRepository;
+import htw.berlin.budgetapp.service.AccountType;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,18 +19,30 @@ public class BudgetAppApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+	public CommandLineRunner commandLineRunner(AccountRepository accountRepository) {
+
 		return args -> {
+			accountRepository.save(new AccountEntity("Deutsche Bank", AccountType.GIROKONTO));
+			accountRepository.save(new AccountEntity("Sparkasse", AccountType.SPARKONTO));
 
-			System.out.println("Let's inspect the beans provided by Spring Boot:");
-
-			String[] beanNames = ctx.getBeanDefinitionNames();
-			Arrays.sort(beanNames);
-			for (String beanName : beanNames) {
-				System.out.println(beanName);
-			}
+			System.out.println("Die Test-Konten wurden erfolgreich angelegt.");
 
 		};
-	}
 
+//	@Bean
+//	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+//		return args -> {
+//
+//			System.out.println("Let's inspect the beans provided by Spring Boot:");
+//
+//			String[] beanNames = ctx.getBeanDefinitionNames();
+//			Arrays.sort(beanNames);
+//			for (String beanName : beanNames) {
+//				System.out.println(beanName);
+//			}
+//
+//		};
+
+
+	}
 }
