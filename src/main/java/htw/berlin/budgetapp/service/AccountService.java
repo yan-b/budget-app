@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface AccountService {
 
-    public AccountEntity createNewAccount(String accountName, AccountType accountType);
+    AccountEntity createNewAccount(String accountName, AccountType accountType);
 
-    public List<AccountEntity> getAllAccounts();
+    List<AccountEntity> getAllAccounts();
 
 }

@@ -2,6 +2,8 @@ package htw.berlin.budgetapp.service;
 
 import htw.berlin.budgetapp.presistence.AccountEntity;
 import htw.berlin.budgetapp.presistence.AccountRepository;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -16,10 +18,8 @@ public class AccountServiceImpl implements AccountService {
         this.accountRepository = accountRepository;
     }
 
-    @Override
     public AccountEntity createNewAccount(String accountName, AccountType accountType) {
         return accountRepository.save(new AccountEntity(accountName, accountType));
-//        return new AccountEntity(accountName, accountType);
     }
 
     public List<AccountEntity> getAllAccounts() {

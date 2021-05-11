@@ -22,10 +22,10 @@ public class BudgetAppApplication {
 	public CommandLineRunner commandLineRunner(AccountRepository accountRepository) {
 
 		return args -> {
-			accountRepository.save(new AccountEntity("Deutsche Bank", AccountType.GIROKONTO));
-			accountRepository.save(new AccountEntity("Sparkasse", AccountType.SPARKONTO));
-
-			System.out.println("Die Test-Konten wurden erfolgreich angelegt.");
+//			accountRepository.save(new AccountEntity("Deutsche Bank", AccountType.GIROKONTO));
+//			accountRepository.save(new AccountEntity("Sparkasse", AccountType.SPARKONTO));
+//
+//			System.out.println("Die Test-Konten wurden erfolgreich angelegt.");
 
 		};
 

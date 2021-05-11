@@ -1,6 +1,7 @@
 package htw.berlin.budgetapp.presistence;
 
 import htw.berlin.budgetapp.service.AccountType;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.persistence.*;
 
