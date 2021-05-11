@@ -1,6 +1,5 @@
 package htw.berlin.budgetapp.service;
 
-import htw.berlin.budgetapp.api.Account;
 import htw.berlin.budgetapp.presistence.AccountEntity;
 import htw.berlin.budgetapp.presistence.AccountRepository;
 
