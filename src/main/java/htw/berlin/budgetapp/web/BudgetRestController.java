@@ -37,4 +37,9 @@ public class BudgetRestController {
         return (List<AccountEntryEntity>) accountEntryRepository.findAll();
     }
 
+    @PostMapping(path = "/newEntry")
+    public AccountEntryEntity newAccountEntryEntity(@RequestBody AccountEntryEntity newAccountEntryEntity) {
+        return accountEntryRepository.save(newAccountEntryEntity);
+    }
+
 }
