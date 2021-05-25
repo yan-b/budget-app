@@ -12,6 +12,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController(Endpoints.LOGIN).setViewName(ViewNames.LOGIN);
         registry.addViewController(Endpoints.ACCOUNTS).setViewName(ViewNames.ACCOUNTS);
         registry.addViewController(Endpoints.ENTRIES).setViewName(ViewNames.ENTRIES);
+        registry.addViewController(Endpoints.REGISTER).setViewName(ViewNames.REGISTER);
     }
 
 }

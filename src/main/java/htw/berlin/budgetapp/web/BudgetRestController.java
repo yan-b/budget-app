@@ -32,7 +32,7 @@ public class BudgetRestController {
         return accountRepository.save(newAccountEntity);
     }
 
-    @GetMapping(path = "/accountEntries")
+    @GetMapping(path = "/entries")
     public List<AccountEntryEntity> findAll() {
         return (List<AccountEntryEntity>) accountEntryRepository.findAll();
     }
