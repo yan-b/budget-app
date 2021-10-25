@@ -6,6 +6,7 @@ import htw.berlin.budgetapp.presistence.AccountEntryRepository;
 import htw.berlin.budgetapp.presistence.AccountRepository;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class AccountEntryServiceImpl implements AccountEntryService{
@@ -19,8 +20,8 @@ public class AccountEntryServiceImpl implements AccountEntryService{
     }
 
     @Override
-    public AccountEntryEntity createNewEntry(Long accountFk, String entryDescription, EntryType entryType, Double entryAmount) {
-        return accountEntryRepository.save(new AccountEntryEntity(accountFk, entryDescription, entryType, entryAmount));
+    public AccountEntryEntity createNewEntry(Long accountFk, String entryDescription, EntryType entryType, Double entryAmount, LocalDate entryDate, String userFk) {
+        return accountEntryRepository.save(new AccountEntryEntity(accountFk, entryDescription, entryType, entryAmount, entryDate, userFk));
     }
 
     @Override

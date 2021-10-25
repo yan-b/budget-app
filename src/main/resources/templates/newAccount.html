@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout (~{::body})}" lang="en" xmlns:min="http://www.w3.org/1999/xhtml"
+      xmlns:max="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<body>
+<h1>ACCOUNTS OVERVIEW</h1><br>
+
+<div class="columns" id="accountApp">
+  <div class="column is-two-thirds">
+    <section class="section">
+      <h1 class="title">Create a new Account</h1>
+      <hr>
+
+      <!-- form starts here -->
+      <section class="form">
+        <div class="field">
+          <label class="label">Choose account name:</label>
+          <div class="control">
+            <input v-model="form.name" v-validate=”{required: true, min: 3, max: 25}” v-bind:class="{'is-danger': errors.has('name')}" class="input" type="text" placeholder="Text input">
+          </div>
+        </div>
+      </section>
+      <p class="help is-danger" v-show="errors.has('name')">
+        {{ errors.first('name') }}
+      </p>
+      <section class="form">
+        <div class="field">
+          <label class="label">Choose account type:</label>
+          <div class="control">
+            <input v-model="form.type" class="input" type="text" placeholder="Text input">
+          </div>
+        </div>
+      </section>
+      <section class="form">
+        <div class="field">
+          <label class="label">Choose initial balance:</label>
+          <div class="control">
+            <input v-model="form.balance" number class="input" type="text" placeholder="Text input">
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+<script src="https://unpkg.com/vee-validate@2.0.0-rc.18/dist/vee-validate.js"></script>
+
+<script>
+  Vue.use(VeeValidate);
+
+  class Vue {
+    constructor(param) {
+      
+    }
+
+  }
+
+  new Vue({
+    el: '#accountApp',
+    data: {
+      form: {
+        name: '',
+        type: '',
+        balance: ''
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

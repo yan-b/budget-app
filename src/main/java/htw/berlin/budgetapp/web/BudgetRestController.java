@@ -20,24 +20,22 @@ public class BudgetRestController {
         this.accountEntryRepository = accountEntryRepository;
     }
 
-
-    @GetMapping(path = "/accounts")
-    public List<AccountEntity> all() {
+    @GetMapping(path = "/rest/getAccounts")
+    public List<AccountEntity> findAllAccounts() {
         return (List<AccountEntity>) accountRepository.findAll();
     }
 
-
-    @PostMapping(path = "/newAccount")
+    @PostMapping(path = "/rest/newAccount")
     public AccountEntity newAccountEntity(@RequestBody AccountEntity newAccountEntity) {
         return accountRepository.save(newAccountEntity);
     }
 
-    @GetMapping(path = "/entries")
-    public List<AccountEntryEntity> findAll() {
+    @GetMapping(path = "/rest/entries")
+    public List<AccountEntryEntity> findAllEntries() {
         return (List<AccountEntryEntity>) accountEntryRepository.findAll();
     }
 
-    @PostMapping(path = "/newEntry")
+    @PostMapping(path = "/rest/newEntry")
     public AccountEntryEntity newAccountEntryEntity(@RequestBody AccountEntryEntity newAccountEntryEntity) {
         return accountEntryRepository.save(newAccountEntryEntity);
     }

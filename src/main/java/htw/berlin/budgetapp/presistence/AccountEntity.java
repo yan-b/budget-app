@@ -13,6 +13,9 @@ public class AccountEntity {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long accountId;
 
+        @Column(name = "user_fk", nullable = false)
+        private String userId;
+
         @Column(name = "account_name", nullable = false)
         private String accountName;
 
@@ -24,10 +27,11 @@ public class AccountEntity {
         private double accountBalance;
 
 
-        public AccountEntity(String accountName, AccountType accountType) {
+        public AccountEntity(String userId, String accountName, AccountType accountType, Double accountBalance) {
+            this.userId = userId;
             this.accountName = accountName;
             this.accountType = accountType;
-            this.accountBalance = 0.00;
+            this.accountBalance = accountBalance;
         }
 
         protected AccountEntity() {}
@@ -38,11 +42,15 @@ public class AccountEntity {
         return String.format(
                 "Account[Account-Id=%d, Account-Name='%s', Account-Balance='%s']",
                 accountId, accountName, accountBalance);
-    }
+        }
+
+        public String getUserId() { return userId;}
+
+        public void setUserId(String userId) { this.userId = userId; }
 
         public Long getId() {
-            return accountId;
-        }
+                return accountId;
+            }
 
 
         public String getAccountName() {
@@ -58,4 +66,6 @@ public class AccountEntity {
         public double getAccountBalance() {
             return accountBalance;
         }
- }
+
+        public void setAccountBalance(double accountBalance) { this.accountBalance = accountBalance; }
+}

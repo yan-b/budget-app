@@ -4,6 +4,7 @@ import htw.berlin.budgetapp.service.AccountType;
 import htw.berlin.budgetapp.service.EntryType;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "accountEntries")
@@ -26,16 +27,28 @@ public class AccountEntryEntity {
     @Column(name = "entry_amount")
     private double entryAmount;
 
+    @Column(name = "entry_date")
+    private LocalDate entryDate;
 
-    public AccountEntryEntity(Long accountFk, String entryDescription, EntryType entryType, Double entryAmount) {
+    @Column(name = "user_fk")
+    private String userFk;
+
+
+    public AccountEntryEntity(Long accountFk, String entryDescription, EntryType entryType, Double entryAmount, LocalDate entryDate, String userFk) {
         this.accountFk = accountFk;
         this.entryDescription = entryDescription;
         this.entryType = entryType;
         this.entryAmount = entryAmount;
+        this.entryDate = entryDate;
+        this.userFk = userFk;
     }
 
     protected AccountEntryEntity() {
     }
+
+    public String getUserFk() { return userFk; }
+
+    public void setUserFk(String userFk) { this.userFk = userFk; }
 
     public Long getAccountFk() {
         return accountFk;
@@ -67,6 +80,22 @@ public class AccountEntryEntity {
 
     public void setEntryAmount(double entryAmount) {
         this.entryAmount = entryAmount;
+    }
+
+    public Long getAccountEntryId() {
+        return accountEntryId;
+    }
+
+    public void setAccountEntryId(Long accountEntryId) {
+        this.accountEntryId = accountEntryId;
+    }
+
+    public LocalDate getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(LocalDate entryDate) {
+        this.entryDate = entryDate;
     }
 
     @Override
