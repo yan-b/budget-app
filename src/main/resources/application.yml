@@ -6,8 +6,6 @@ spring:
     driver-class-name: org.postgresql.Driver
     platform: postgres
     initialization-mode: always
-    hikari:
-      maximum-pool-size: 5
   jpa:
     properties:
       hibernate:
