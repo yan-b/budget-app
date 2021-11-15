@@ -9,9 +9,7 @@ import htw.berlin.budgetapp.service.AccountType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.transaction.Transactional;
@@ -69,19 +67,15 @@ public class AccountController {
         }
     }
 
-    @PostMapping("/newAccount/name={name}/type={type}/balance={balance}")
-    public ModelAndView createNewAccount(@AuthenticationPrincipal OidcUser user,
-                                         @PathVariable String name,
-                                         @PathVariable String type,
-                                         @PathVariable String balance) {
+    // @AuthenticationPrincipal OidcUser user, ---- LINK: /name={name}/type={type}/balance={balance}
+    @PostMapping("/api/v1/newAccount2")
+    public ModelAndView createNewAccount(@RequestBody AccountEntity accountEntity) {
+        String userId = "00u12dvbrnzq5XiNP5d7";
+//      String userId = user.getSubject();
+        AccountType accountType = accountEntity.getAccountType();
+        Double accountBalance = accountEntity.getAccountBalance();
 
-        Map<String, Object> mav = new HashMap<String, Object>();
-        String userId = user.getSubject();
-        AccountType accountType = null;
-        accountType.valueOf(type);
-        Double accountBalance = Double.parseDouble(balance);
-
-        AccountEntity newAccountEntity = new AccountEntity(userId, name, accountType, accountBalance);
+        AccountEntity newAccountEntity = new AccountEntity(userId, accountEntity.getAccountName(), accountType, accountBalance);
         accountRepository.save(newAccountEntity);
 
         return new ModelAndView("/accounts");
@@ -100,7 +94,7 @@ public class AccountController {
         return "redirect:/accounts";
     }
 
-    @GetMapping("accounts/updateBalance/id={id}/amount={amount}")
+    @PutMapping("accounts/updateBalance/id={id}/amount={amount}")
     public String updateBalance(@AuthenticationPrincipal OidcUser user, @PathVariable String id, @PathVariable String amount) {
         Long accountId = Long.parseLong(id);
         Double updateAmount = Double.parseDouble(amount);
