@@ -73,13 +73,12 @@ public class EntriesController {
             }
     }
 
-    @PostMapping("/newEntrie/aid={aid}/desc={desc}/type={type}/amount={amount}/date={date}")
+    @PostMapping("/newEntrie/aid={aid}/desc={desc}/type={type}/amount={amount}")
     public ModelAndView createNewEntry(@AuthenticationPrincipal OidcUser user,
                                        @PathVariable String aid,
                                        @PathVariable String desc,
                                        @PathVariable String type,
-                                       @PathVariable String amount,
-                                       @PathVariable String date) {
+                                       @PathVariable String amount) {
 
         String userId = user.getSubject();
         Long accountFk = Long.parseLong(aid);
@@ -87,7 +86,7 @@ public class EntriesController {
         EntryType entryType = null;
         entryType.valueOf(type);
         Double entryAmount = Double.parseDouble(amount);
-        LocalDate entryDate = LocalDate.parse(date);
+        LocalDate entryDate = LocalDate.now();
 
         AccountEntryEntity newAccountEntryEntity = new AccountEntryEntity(accountFk, description, entryType, entryAmount, entryDate, userId);
         accountEntryRepository.save(newAccountEntryEntity);
