@@ -15,8 +15,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**")
                 .allowedMethods("*")
                 .allowedOrigins(
-                        "http://localhost:8080",
-                        "https://budget-app-yan-frontend.herokuapp.com/"
+                        "http://localhost:3000",
+                        "https://budget-app-yan-frontend.herokuapp.com"
                 );
     }
 

@@ -26,13 +26,11 @@ public class BudgetRestController {
 
     @GetMapping(path = "/api/v1/getAccounts")
     public List<AccountEntity> getAllAccounts() {
-
-        return (List<AccountEntity>) accountRepository.findAll();
+        return accountRepository.findAll();
     }
 
     @GetMapping(path = "/api/v1/getAccounts/{id}")
     public Optional<AccountEntity> findAccountById(@PathVariable Long id) {
-
         return accountRepository.findById(id);
     }
 
