@@ -6,3 +6,7 @@ Folgende Hauptfunktionen bietet die Budget-App:
 - Erfassen von Ausgaben und die Möglichkeit der Kategorisierung
 - Auswertungen der Ausgaben nach Kategorie
 - Erfassen von Aktien und Fonds mit Anzeige des aktuellen Marktwertes
+
+Unit-Tests:
+
+[![CI](https://github.com/yan-b/budget-app-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/yan-b/budget-app-frontend/actions/workflows/ci.yml)

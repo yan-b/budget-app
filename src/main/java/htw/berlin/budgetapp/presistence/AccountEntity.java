@@ -13,7 +13,7 @@ public class AccountEntity {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long accountId;
 
-        @Column(name = "user_fk", nullable = false)
+        @Column(name = "user_fk")
         private String userId;
 
         @Column(name = "account_name", nullable = false)
@@ -48,20 +48,15 @@ public class AccountEntity {
 
         public void setUserId(String userId) { this.userId = userId; }
 
-        public Long getId() {
-                return accountId;
-            }
-
+        public Long getId() { return accountId; }
 
         public String getAccountName() {
             return accountName;
         }
 
-
         public AccountType getAccountType() {
             return accountType;
         }
-
 
         public double getAccountBalance() {
             return accountBalance;

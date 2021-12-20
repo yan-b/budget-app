@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface AccountRepository extends JpaRepository<AccountEntity, Long> {
-
-    List<AccountEntity> findByUserId(String userId);
+//
+//    List<AccountEntity> findByUserId(String userId);
 }

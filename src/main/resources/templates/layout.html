@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 require_once('delete_confirm.html');
 <html th:fragment="layout (template)" lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Budget-App</title>
-    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
-    <meta id="Viewport" name="viewport" content="width=device-width", initial-scale=1>
+<!--<head>-->
+<!--    <title>Budget-App</title>-->
+<!--    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">-->
+<!--    <meta id="Viewport" name="viewport" content="width=device-width", initial-scale=1>-->
 
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link th:href="@{/css/custom.css}" href="#" rel="stylesheet" />
+<!--    &lt;!&ndash; CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+<!--    <link th:href="@{/css/custom.css}" href="#" rel="stylesheet" />-->
 
-    <!-- JavaScript Bundle with Popper (for Bootstrap) -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
-</head>
-<body>
-  <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-              <a class="navbar-brand" href="/">
-                  <img th:src="@{/images/logo.png}" alt="" width="30" height="30" class="d-inline-block align-text-top">
-                  Budget-App
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                          <a class="nav-link" th:href="@{/}" th:classappend="${#request.requestURI == '/' ? 'active':''}">Home</a>
-                      </li>
-                      <div sec:authorize="isAuthenticated()">
-                      <li class="nav-item">
-                          <a class="nav-link" th:href="@{/accounts}" th:classappend="${#request.requestURI == '/accounts' ? 'active':''}">Accounts Overview</a>
-                      </li>
-                      </div>
-                  </ul>
-                      <div class="logout" sec:authorize="!isAuthenticated()">
-                          <a class="btn btn-outline-primary me-2" th:href="@{/oauth2/authorization/okta}" th:classappend="${#request.requestURI == '/login' ? 'active':''}">Login</a>
-                          <a class="btn btn-outline-primary" th:href="@{/https://dev-76857396.okta.com/#}" th:classappend="${#request.requestURI == '/register' ? 'active':''}">Register</a>
-                      </div>
-                      <div class="logout" sec:authorize="isAuthenticated()">
-                          <form class="form-inline" id="logout-form" method="POST" action="#" th:action="@{/logout}">
-                              <button type="submit" class="btn btn-outline-primary">Logout</button>
-                          </form>
-                      </div>
-              </div>
-          </div>
-      </nav>
-  </header>
-  <main role="main" class="content-wrapper mt-3">
-    <div class="container">
-      <!--/*@thymesVar id="template" type="templates"*/-->
-      <section th:include="${template}"></section>
-    </div>
-  </main>
-</body>
+<!--    &lt;!&ndash; JavaScript Bundle with Popper (for Bootstrap) &ndash;&gt;-->
+<!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--  <header>-->
+<!--      <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--          <div class="container-fluid">-->
+<!--              <a class="navbar-brand" href="/">-->
+<!--                  <img th:src="@{/images/logo.png}" alt="" width="30" height="30" class="d-inline-block align-text-top">-->
+<!--                  Budget-App-->
+<!--              </a>-->
+<!--              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                  <span class="navbar-toggler-icon"></span>-->
+<!--              </button>-->
+<!--              <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--                      <li class="nav-item">-->
+<!--                          <a class="nav-link" th:href="@{/}" th:classappend="${#request.requestURI == '/' ? 'active':''}">Home</a>-->
+<!--                      </li>-->
+<!--                      <div sec:authorize="isAuthenticated()">-->
+<!--                      <li class="nav-item">-->
+<!--                          <a class="nav-link" th:href="@{/accounts}" th:classappend="${#request.requestURI == '/accounts' ? 'active':''}">Accounts Overview</a>-->
+<!--                      </li>-->
+<!--                      </div>-->
+<!--                  </ul>-->
+<!--                      <div class="logout" sec:authorize="!isAuthenticated()">-->
+<!--                          <a class="btn btn-outline-primary me-2" th:href="@{/oauth2/authorization/okta}" th:classappend="${#request.requestURI == '/login' ? 'active':''}">Login</a>-->
+<!--                          <a class="btn btn-outline-primary" th:href="@{/https://dev-76857396.okta.com/#}" th:classappend="${#request.requestURI == '/register' ? 'active':''}">Register</a>-->
+<!--                      </div>-->
+<!--                      <div class="logout" sec:authorize="isAuthenticated()">-->
+<!--                          <form class="form-inline" id="logout-form" method="POST" action="#" th:action="@{/logout}">-->
+<!--                              <button type="submit" class="btn btn-outline-primary">Logout</button>-->
+<!--                          </form>-->
+<!--                      </div>-->
+<!--              </div>-->
+<!--          </div>-->
+<!--      </nav>-->
+<!--  </header>-->
+<!--  <main role="main" class="content-wrapper mt-3">-->
+<!--    <div class="container">-->
+<!--      &lt;!&ndash;/*@thymesVar id="template" type="templates"*/&ndash;&gt;-->
+<!--      <section th:include="${template}"></section>-->
+<!--    </div>-->
+<!--  </main>-->
+<!--</body>-->
 </html>

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface AccountService {
 
-    AccountEntity createNewAccount(String userId, String accountName, AccountType accountType, Double amount);
+    AccountEntity create(AccountEntity request);
 
     List<AccountEntity> getUsersAccount(String userId);
 

@@ -6,4 +6,5 @@ public class ViewNames {
     public static final String ACCOUNTS = "accounts";
     public static final String CREATEACCOUNT = "newAccount";
     public static final String ENTRIES = "entries";
+    public static final String CREATEENTRIE = "createEntrie";
 }

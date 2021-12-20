@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public interface AccountEntryRepository extends JpaRepository<AccountEntryEntity, Long> {
 
-    ArrayList<AccountEntryEntity> findAllByAccountFk(Long accountFk);
-
-    void deleteAllByAccountFk(Long accountFk);
+//    ArrayList<AccountEntryEntity> findAllByAccountFk(Long accountFk);
+//
+//    void deleteAllByAccountFk(Long accountFk);
 
 }
