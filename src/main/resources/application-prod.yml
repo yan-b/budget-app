@@ -1,3 +1,5 @@
+# Template for possible Security implementation
+#
 #okta:
 #  oauth2:
 #    issuer: https://dev-76857396.okta.com/oauth2/default
