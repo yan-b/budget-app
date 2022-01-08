@@ -1,3 +1,5 @@
+// Template for possible Spring-Security implementation
+//
 //package htw.berlin.budgetapp.config;
 //
 //import org.springframework.context.annotation.Configuration;

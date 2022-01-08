@@ -1,4 +1,4 @@
-package htw.berlin.budgetapp.service;
+package htw.berlin.budgetapp.presistence;
 
 public enum AccountType {
 

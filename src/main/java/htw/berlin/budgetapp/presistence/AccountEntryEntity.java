@@ -1,8 +1,5 @@
 package htw.berlin.budgetapp.presistence;
 
-import htw.berlin.budgetapp.service.AccountType;
-import htw.berlin.budgetapp.service.EntryType;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -86,10 +83,6 @@ public class AccountEntryEntity {
         return accountEntryId;
     }
 
-    public void setAccountEntryId(Long accountEntryId) {
-        this.accountEntryId = accountEntryId;
-    }
-
     public LocalDate getEntryDate() {
         return entryDate;
     }
@@ -101,7 +94,8 @@ public class AccountEntryEntity {
     @Override
     public String toString() {
         return String.format(
-                "Account[Entry-Id=%d, Account-FK= '%s', Entry-Description='%s', Entry-Type='%s', Entry-Amount='%s']",
-                accountEntryId, accountFk, entryDescription, entryType, entryAmount);
+                "Entrie[Entry-Id=%d, Account-FK= '%s', Entry-Description='%s', Entry-Type='%s', Entry-Amount='%s', Entry-Date='%s', User-FK='%s']",
+                accountEntryId, accountFk, entryDescription, entryType, entryAmount, entryDate, userFk);
     }
+
 }

@@ -1,18 +1,18 @@
 package htw.berlin.budgetapp.service;
 
 import htw.berlin.budgetapp.presistence.AccountEntity;
-import htw.berlin.budgetapp.presistence.AccountRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface AccountService {
 
-    AccountEntity create(AccountEntity request);
+    List<AccountEntity> findAllAccounts();
 
-    List<AccountEntity> getUsersAccount(String userId);
+    Optional<AccountEntity> findAccountById(Long id);
 
-    List<AccountEntity> getAllAccounts();
+    AccountEntity createAccount(AccountEntity account);
 
-    List<AccountEntity> getUsersAccountsByUserFk(String userFk);
+    boolean deleteAccountById(Long id);
 
 }

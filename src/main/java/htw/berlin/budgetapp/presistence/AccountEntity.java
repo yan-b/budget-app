@@ -1,8 +1,5 @@
 package htw.berlin.budgetapp.presistence;
 
-import htw.berlin.budgetapp.service.AccountType;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.persistence.*;
 
 @Entity
@@ -36,31 +33,31 @@ public class AccountEntity {
 
         protected AccountEntity() {}
 
+        public Long getAccountId() { return accountId; }
 
-        @Override
-        public String toString() {
-        return String.format(
-                "Account[Account-Id=%d, Account-Name='%s', Account-Balance='%s']",
-                accountId, accountName, accountBalance);
-        }
+        public void setAccountId(Long accountId) { this.accountId = accountId; }
 
-        public String getUserId() { return userId;}
+        public String getUserId() { return userId; }
 
         public void setUserId(String userId) { this.userId = userId; }
 
-        public Long getId() { return accountId; }
+        public String getAccountName() { return accountName; }
 
-        public String getAccountName() {
-            return accountName;
-        }
+        public void setAccountName(String accountName) { this.accountName = accountName; }
 
-        public AccountType getAccountType() {
-            return accountType;
-        }
+        public AccountType getAccountType() { return accountType; }
 
-        public double getAccountBalance() {
-            return accountBalance;
-        }
+        public void setAccountType(AccountType accountType) { this.accountType = accountType; }
+
+        public double getAccountBalance() { return accountBalance; }
 
         public void setAccountBalance(double accountBalance) { this.accountBalance = accountBalance; }
+
+        @Override
+        public String toString() {
+                return String.format(
+                        "Account[Account-Id=%d, User-FK= '%s', Account-Name='%s', Account-Type='%s', Account-Balance='%s']",
+                        accountId, userId, accountName, accountType, accountBalance);
+        }
+
 }
