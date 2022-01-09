@@ -1,6 +1,8 @@
 package htw.berlin.budgetapp.presistence;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "accounts")
@@ -14,10 +16,15 @@ public class AccountEntity {
         private String userId;
 
         @Column(name = "account_name", nullable = false)
+        @NotBlank(message = "The account name must not be empty.")
         private String accountName;
 
         @Column(name = "account_type", nullable = false)
         @Enumerated(value = EnumType.STRING)
+        @Pattern(
+                regexp = "GIROKONTO|SPARKONTO",
+                message = "Please provide 'GIROKONTO' or 'SPARKONTO' for type."
+        )
         private AccountType accountType;
 
         @Column(name = "account_balance")

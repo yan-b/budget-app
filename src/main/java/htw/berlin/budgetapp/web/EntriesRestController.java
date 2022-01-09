@@ -30,6 +30,12 @@ public class EntriesRestController {
         return accountEntry != null? ResponseEntity.ok(accountEntry.get()) : ResponseEntity.notFound().build();
     }
 
+    @GetMapping(path = "/api/v1/getAccountEntries/{id}")
+    public ResponseEntity<List<AccountEntryEntity>> getAccountEntriesById(@PathVariable Long id) {
+        var accountEntry = accountEntryServiceImpl.findEntriesByAccountFk(id);
+        return accountEntry != null? ResponseEntity.ok(accountEntry) : ResponseEntity.notFound().build();
+    }
+
     @PostMapping(path = "/api/v1/newEntry")
     public ResponseEntity<Void> createEntry(@RequestBody AccountEntryEntity entry) throws URISyntaxException {
         var newEntry = accountEntryServiceImpl.createEntry(entry);

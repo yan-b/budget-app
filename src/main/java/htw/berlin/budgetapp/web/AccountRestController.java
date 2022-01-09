@@ -5,6 +5,7 @@ import htw.berlin.budgetapp.service.AccountServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -31,7 +32,7 @@ public class AccountRestController {
     }
 
     @PostMapping(path = "/api/v1/newAccount")
-    public ResponseEntity<Void> createAccount(@RequestBody AccountEntity account) throws URISyntaxException {
+    public ResponseEntity<Void> createAccount(@Valid @RequestBody AccountEntity account) throws URISyntaxException {
         var newAccount = accountServiceImpl.createAccount(account);
         URI uri = new URI("/api/v1/getAccount/" + newAccount.getAccountId());
         return ResponseEntity.created(uri).build();

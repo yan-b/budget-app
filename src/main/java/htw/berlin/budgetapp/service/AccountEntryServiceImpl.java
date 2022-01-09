@@ -28,6 +28,11 @@ public class AccountEntryServiceImpl implements AccountEntryService{
         return entry;
     }
 
+    public List<AccountEntryEntity> findEntriesByAccountFk(Long accountFk) {
+        var entries = accountEntryRepository.findByAccountFk(accountFk);
+        return entries;
+    }
+
     public AccountEntryEntity createEntry(AccountEntryEntity entry) {
 
         var accountFk = entry.getAccountFk();
