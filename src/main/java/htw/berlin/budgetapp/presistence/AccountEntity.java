@@ -21,10 +21,6 @@ public class AccountEntity {
 
         @Column(name = "account_type", nullable = false)
         @Enumerated(value = EnumType.STRING)
-        @Pattern(
-                regexp = "GIROKONTO|SPARKONTO",
-                message = "Please provide 'GIROKONTO' or 'SPARKONTO' for type."
-        )
         private AccountType accountType;
 
         @Column(name = "account_balance")
