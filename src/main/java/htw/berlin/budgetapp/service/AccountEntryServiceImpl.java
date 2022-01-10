@@ -8,12 +8,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AccountEntryServiceImpl implements AccountEntryService{
+public class AccountEntryServiceImpl implements AccountEntryService {
 
     private final AccountEntryRepository accountEntryRepository;
+    private final AccountRepository accountRepository;
 
-    public AccountEntryServiceImpl(AccountEntryRepository accountEntryRepository) {
+    public AccountEntryServiceImpl(AccountEntryRepository accountEntryRepository, AccountRepository accountRepository) {
         this.accountEntryRepository = accountEntryRepository;
+        this.accountRepository = accountRepository;
     }
 
     public List<AccountEntryEntity> findAllEntries() {
@@ -40,8 +42,8 @@ public class AccountEntryServiceImpl implements AccountEntryService{
         var type = entry.getEntryType();
         var amount = entry.getEntryAmount();
         var date = entry.getEntryDate();
-        var accountEntryEntity = new AccountEntryEntity(accountFk, description, type, amount, date, "111");
-        accountEntryEntity = accountEntryRepository.save(accountEntryEntity);
+        var accountEntryEntity = new AccountEntryEntity(accountFk, description, type, amount, date, "111aaa");
+        accountEntryRepository.save(accountEntryEntity);
 
         return accountEntryEntity;
     }
